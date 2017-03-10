@@ -57,3 +57,52 @@
 		-> localhost:4200
 	}
 }
+3.Intro to TypeScript: {
+	3.1.TypeScript 101: {
+		- Superset of JavaScript
+		- Very similar to JS, with a few additions: {
+			+ Types
+			+ Classes
+			+ More...
+		}
+	}
+	3.2.TypeScript Types: {
+		- In regular JavaScript: {
+			myVar = 'a string';
+			myVar = 25;
+		}
+		- In TypeScript: {
+			myVar = 'a String';
+			myVar = 25; X => NOT ALLOWED.
+		}
+	}
+	3.3.Declaring Types: {
+		- myVar: string = 'hello';
+		- myVar: number = 20;
+		
+		- myVar: boolean = true;
+		
+		- myVar: any;
+		- myVar = 50;
+		
+		- myVar: number[]
+	}
+	3.4.Classes: {
+		- class Car {
+			wheels: number = 4;
+			drive {
+				console.log('the car is driving');
+			}
+		}
+		- myCar: Car = new Car();
+	}
+	3.5.Constructor Functions: {
+		- class Car {
+			speed: number;
+			constructor(mph: number) {
+				this.speed = mph;
+			}
+		}
+		- myCar: Car = new Car(70);
+	}
+}
