@@ -106,3 +106,12 @@
 		- myCar: Car = new Car(70);
 	}
 }
+4.Core Files Overview: {
+	- src/ *.ts -> built -> dist/ *.js 
+	- index.html 
+	- app/app.component.css
+		app.component.html
+		app.component.spec.ts
+		app.component.ts
+		app.module.ts
+}
