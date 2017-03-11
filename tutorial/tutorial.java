@@ -1,3 +1,4 @@
+http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 1.Introduction: {
 	1.1.What is Angular2: {
 		- JavaScript framework for creating dynamic web apps
@@ -114,4 +115,32 @@
 		app.component.spec.ts
 		app.component.ts
 		app.module.ts
+}
+5.Components: {
+	- Components: 2.15: https://youtu.be/YKi2A2PFTnc?t=138
+	{
+		+ Root Component (app.component)
+			+ Nav Component
+			+ Blog Component
+				+ Sidebar Component
+				+ Article Component
+		
+		+ Each component: {
+			* sidebar.component.ts: component logic
+			* sidebar.component.html: component view
+			* sidebar.component.css: component css
+		}
+	}
+	- app.component.ts: {
+		@Component({
+			moduleId: module.id,
+			selector: 'app-root',//-> index.html:<app-root></app-root>
+			templateUrl: 'app.component.html',
+			styleUrls: ['app.component.css']
+		})
+		
+		export class AppComponent {
+			title = 'app works!';//->app.component.html:{{title}}
+		}
+	}
 }
