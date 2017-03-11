@@ -164,3 +164,24 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 		+ ninja-directory/src/styles.css
 	}
 }
+7.Creating a Component: {
+	7.1.Structure: {
+		- Root Component (app.component)
+			+ Home Component (home.component)
+	}
+	7.2.Commands: {
+		- cd ninja-directory/src/ *app*
+		- ng generate component *home*// -> *home* under *app* 
+		{
+			ninja-directory/src/app/home/home.component.ts
+									home.component.html
+									home.component.css
+									index.ts
+		}
+	}
+	7.3.Insert Home section into app: {
+		- app.component.html:
+			<app-home></app-home>
+	}
+	
+}
