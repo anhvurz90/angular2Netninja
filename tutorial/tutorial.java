@@ -144,3 +144,23 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 		}
 	}
 }
+6.Templates & CSS: {
+	- 1st style: {
+		@Component({
+			moduleId: module.id,
+			selector: 'app-root',
+			templateUrl: 'app.component.html',
+			styleUrls: ['app.component.css']
+		})
+	}
+	- 2nd style: {
+		@Component({
+			template: '<h1>{{title}}</h1>',
+		})
+	}
+	- CSS: {
+		+ app.component.css 
+			or
+		+ ninja-directory/src/styles.css
+	}
+}
