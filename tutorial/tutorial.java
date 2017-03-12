@@ -209,3 +209,35 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 		hello there!
 	}
 }
+10.Data Binding: {
+	home.component.ts<-----DATA----->home.component.html
+	10.1.Data Flow(Into the View) {
+		- String interpolation:
+			{{title}} (always resolves to a string)
+		- Property binding:
+			<input [required]='expression'>
+	}
+	10.2.Data Flow(Out of the View): {
+		- Event binding:
+			<button (click)='expression/function'>
+			Component class can handle the event
+	}
+	10.3.Data Flow(Both ways) {
+		- Two-way data binding
+			+ <input [(ngModel)]='model/object'>
+			+ Updates the model/object in the component class
+			+ In turn updates any reference to the model/object
+				in the view/template
+				{{model}}
+	}
+	10.4.Coding: {
+		- home.component.ts: {
+			export class HomeComponent ... {
+				homeTitle = 'Welcome to the ninja directory';
+			}
+		}
+		- home.component.html: {
+			{{homeTitle}}
+		}
+	}
+}
