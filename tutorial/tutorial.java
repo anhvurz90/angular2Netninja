@@ -262,3 +262,25 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 		}
 	}
 }
+12.Event Binding: {
+	12.1.Event Binding: {
+		- Bind events to HTML elements: {
+			+ Bind to native events (such as click events) :
+				<button (click) = 'function'>
+			+ Bind to custom events we make:
+				<app-home (update) = 'function'></app-home>
+		}
+	}
+	12.2. {
+		- home.component.html: {
+			<button (click) = 'alertMe("I like beef")'>Click me</button>
+		}
+		- home.component.ts: {
+			export class HomeComponent implements OnInit {
+				alertMe(val) {
+					alert(val);
+				}
+			}
+		}
+	}
+}
