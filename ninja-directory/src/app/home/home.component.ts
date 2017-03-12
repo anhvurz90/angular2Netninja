@@ -11,6 +11,11 @@ export class HomeComponent implements OnInit {
   myString = 'I like chicken';
   myBoolean = true;
 
+  ninja = {
+    name: 'Yoshi',
+    belt: 'red'
+  };
+
   alertMe(msg) {
     alert(msg);
   };
