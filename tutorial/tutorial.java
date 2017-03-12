@@ -284,3 +284,22 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 		}
 	}
 }
+13.2 Way Data Binding: {
+	- home.component.ts: {
+		export class HomeComponent implements OnInit {
+			homeTitle = 'Welcome to the ninja directory!';
+			ninja = {
+				name: 'Yoshi',
+				belt: 'Black'
+			};
+		}
+	}
+	- home.component.html: {
+		<label>Name:</label>
+		<input [(ngModel)] = 'ninja.name'/>
+		<label>Belt:</label>
+		<input [(ngModel)] = 'ninja.belt'/>
+		<p>{{ninja.name}}</p>
+		<p>{{ninja.belt}}</p>
+	}
+}
