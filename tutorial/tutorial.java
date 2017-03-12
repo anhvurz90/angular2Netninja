@@ -194,3 +194,18 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 		})
 	}
 }
+9.Ng-Content Directive {
+	- home.component.html: {
+		<p>
+			home works!
+		</p>
+		<ng-content></ng-content>
+	}
+	- app.component.html: {
+		<app-home>hello there!</app-home>
+	}   
+	---> html: {
+		home works!
+		hello there!
+	}
+}
