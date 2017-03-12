@@ -185,3 +185,12 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 	}
 	
 }
+8.Nesting Components: {
+	app.component.ts/app.module.ts: {
+		import { HomeComponent } from './home/home.component';
+		
+		@Component({
+			directives: [HomeComponent]
+		})
+	}
+}
