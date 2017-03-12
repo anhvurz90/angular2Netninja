@@ -241,3 +241,24 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 		}
 	}
 }
+11.Property Binding: {
+	11.1.Property Binding {
+		- Bind to HTML properties: {
+			+ Native HTML properties: [value] = 'expression'
+			+ Built in angular directives [ngClass]='expression'
+			+ Custom-made properties: [myProp]='expression'
+		}
+	}
+	11.2.: {
+		- home.component.ts: {
+			export class HomeComponent implements OnInit {
+				myString = 'I like chicken';
+				myBoolean = true;
+			}
+		}
+		- home.component.html {
+			<input [value]='myString'/>
+			<input [required]='myBoolean'/>
+		}
+	}
+}
