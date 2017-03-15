@@ -303,3 +303,27 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 		<p>{{ninja.belt}}</p>
 	}
 }
+14.Custom Property Binding (& @Input): {
+	- app.component.ts: {
+		export class AppComponent {
+			ninja = {
+				name: 'Vu',
+				belt: 'Black'
+			}
+		}
+	}
+	- app.component.html: {
+		<app-home [ninjaParam]='ninja'>Hello there!</app-home>
+	}
+	
+	- home.component.ts: {
+		import {Input} from '@angular/core';
+		export class HomeComponent implements OnInit {
+			@Input() ninjaParam;
+		}
+	}
+	- home.component.html: {
+		<p>{{ninjaParam.name}}</p>
+		<p>{{ninjaParam.belt}}</p>
+	}
+}
