@@ -327,3 +327,35 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 		<p>{{ninjaParam.belt}}</p>
 	}
 }
+15.Custom Event Binding (& @Output): {
+	- from Home -> Root component.
+	- app.component.html: {
+		<app-home [ninjaParam] = 'ninja'
+				   (onYell) = 'yell($event)'>Hello there!</app-home>
+	}
+	
+	- app.component.ts: {
+		export class AppComponent {
+			yell(e) {
+				alert('I am yelling!');
+				console.log(e);
+			}
+		}
+	}
+	
+	- home.component.ts: {
+		import { Output, EventEmitter} from '@angular/core';
+		
+		export class HomeComponent implements OnInit {
+			@Output() onYell = new EventEmitter();
+			
+			fireYellEvent(e) {
+				this.onYell.emit(e);
+			}
+		}
+	}
+	
+	- home.component.html {
+		<button (click) = 'fireYellEvent($event)'>Hit me</button> 
+	}
+}
