@@ -9,6 +9,11 @@ export class AppComponent {
   title = 'app works!, woop woop.';
   name = 'ninja';
 
+  yell(e) {
+    alert('I am yelling!');
+    console.log(e);
+  }
+
   ninja = {
     name : 'Vu',
     belt: 'Red'
