@@ -359,3 +359,60 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 		<button (click) = 'fireYellEvent($event)'>Hit me</button> 
 	}
 }
+16.Routing: {
+	16.1.Routing: {
+		- /
+		- /home
+		- /directory
+		- /whatever
+		All render the same view, because no routing has been set up
+		
+		We need:
+		- / -> home view
+		- /directory -> directory view
+	}
+	16.2.Setting up Routes: {
+		2 STEPS: 
+			+ Create a routes file, and export our routes so they can be
+				loaded in the main.ts file
+			+ Tell Angular where to load in our components / views when 
+				a route is requested
+	}
+	16.3.Coding: {
+		- Generate new component: {
+			+ninja-directory/
+				* ng generate component directory == ng g c directory
+		}
+		- src/app/app.routes.ts: {
+			import { DirectoryComponent} from './directory/directory.component';
+			import { HomeComponent} from './home/home.component';
+			import { provideRouter } from '@angular/router';
+			
+			const APP_ROUTES = [
+				{path: '', component: DirectoryComponent},
+				{path: '', component: HomeComponent}
+			];
+				
+			export APP_ROUTES_PROVIDER = [
+				provideRouter(APP_ROUTES)
+			];
+		}
+		- src/main.ts: {
+			import { APP_ROUTES_PROVIDER } from './app/app.router';
+			
+			bootstrap(AppComponent, [APP_ROUTES_PROVIDER]);
+		}
+		- src/app/app.component.html: {
+			+ remove <ap-home>...</app-home>
+			+ add:
+				<router-outlet></router-outlet>
+		}
+		- src/app/app.component.ts: (app.module.ts) {
+			import { ROUTER_DIRECTIVES } from '@angular/router'
+			
+			@Component({
+				directives: [HomeComponent, ROUTER_DIRECTIVES]
+			});
+		}
+	}
+}
