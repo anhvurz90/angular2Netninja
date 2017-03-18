@@ -360,6 +360,9 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 	}
 }
 16.Routing: {
+	16.0.Updated tutorial: {
+		https://angular.io/docs/ts/latest/guide/router.html
+	}
 	16.1.Routing: {
 		- /
 		- /home
