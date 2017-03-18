@@ -439,3 +439,25 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 				<li><a routerLink='/directory' routerLinkActive='active'>Directory</a></li>
  	}
 }
+18.Route Params: {
+	- src/app/app.routes.ts: {
+		export const APP_ROUTES = {
+			{ path: 'directory/:ninja', component: DirectoryComponent}
+		}
+	}
+	
+	- src/app/directory/directory.component.ts: {
+		import { ActivatedRoute } from '@angular/router';
+		
+		export class DirectoryComponent implements OnInit {
+			constructor(private route: ActivatedRoute) {
+				this.ninjaObj = route.snapshot.params['ninja'];
+			}
+		}
+	}
+	
+	- src/app/directory/directory.component.html: {
+		<p>{{ninja}}</p>
+	}
+		
+}
