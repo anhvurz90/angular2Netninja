@@ -4,5 +4,5 @@ import { Routes } from '@angular/router';
 
 export const APP_ROUTES: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'directory', component: DirectoryComponent }
+  {path: 'directory/:ninja', component: DirectoryComponent }
 ];
