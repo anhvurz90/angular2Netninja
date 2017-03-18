@@ -417,3 +417,25 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 		}
 	}
 }
+17.Adding Links: {
+	- updated tutorial:  {
+		https://angular.io/docs/ts/latest/guide/router.html#!#basics-router-links
+	}
+	- src/index.html : {
+		<head>
+			<link href='/styles.css' rel='stylesheet' type='text/css'/>
+			<!-- styles.css & logo.png are inside 'assets' folder-->
+		</head>
+	}
+	- src/app/app.component.html: {
+		<nav>
+			<ul>
+				<li><a href='/'>Home</a></li>
+				<li><a href='/directory'>Directory</a></li>
+			</ul>
+		</nav>
+		--->
+				<li><a routerLink='/' routerLinkActive='active'>Home</a></li>
+				<li><a routerLink='/directory' routerLinkActive='active'>Directory</a></li>
+ 	}
+}
