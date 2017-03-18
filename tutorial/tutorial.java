@@ -386,33 +386,31 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 		- src/app/app.routes.ts: {
 			import { DirectoryComponent} from './directory/directory.component';
 			import { HomeComponent} from './home/home.component';
-			import { provideRoutes } from '@angular/router';
+			import { Routes } from '@angular/router';
 			
-			const APP_ROUTES = [
+			export const APP_ROUTES = [
 				{path: '', component: HomeComponent},
 				{path: 'directory', component: DirectoryComponent}	
-			];
-				
-			export consts APP_ROUTES_PROVIDER = [
-				provideRoutes(APP_ROUTES)
-			];
+			];				
 		}
 		- src/main.ts: {
-			import { APP_ROUTES_PROVIDER } from './app/app.routes';
-			
-			bootstrap(AppComponent, [APP_ROUTES_PROVIDER]);
 		}
 		- src/app/app.component.html: {
 			+ remove <ap-home>...</app-home>
 			+ add:
 				<router-outlet></router-outlet>
 		}
-		- src/app/app.component.ts: (app.module.ts) {
-			import { ROUTER_DIRECTIVES } from '@angular/router'
-			
-			@Component({
-				directives: [HomeComponent, ROUTER_DIRECTIVES]
-			});
+		- src/app/app.component.ts: {
+		}
+		- src/app/app.module.ts: {
+			import { RouterModule } from '@angular/router';
+			import { APP_ROUTES } from './app.routes';
+
+			@NgModule({
+			  imports: [
+			    RouterModule.forRoot(APP_ROUTES)
+			  ]
+			})
 		}
 	}
 }
