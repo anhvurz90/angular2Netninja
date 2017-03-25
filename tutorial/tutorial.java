@@ -457,7 +457,7 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 	}
 	
 	- src/app/directory/directory.component.html: {
-		<p>{{ninja}}</p>
+		<p>{{ninjaObj}}</p>
 	}
 		
 }
