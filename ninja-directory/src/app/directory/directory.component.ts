@@ -8,6 +8,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DirectoryComponent implements OnInit {
 
+  classes = {'blue': false, 'red': true, 'underline': true};
+
+  test = false;
+
   ninjaObj: string;
 
   constructor(private route: ActivatedRoute) {
