@@ -461,3 +461,36 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 	}
 		
 }
+19.Directives Introduction: {
+	19.1.Directives: {
+		- Directives are instructions which tell Angular to do something.
+		- <router-outlet></router-outlet>
+		- [routerLink]=''
+	}
+	19.2.Types of Directive: {
+		- Attribute:
+			+ Interacts with the element it's on to change it's properties.
+			E.g: ngClass
+		- Structural:
+			+ Changes the structure of the HTML code.
+			E.g: *ngIf
+	}
+	19.3.directory.component.html: {
+		<p [ngClass]="classes">
+			directory works!
+		</p>
+		
+		<p *ngIf="test">Only show if test is true</p>
+		<style>
+			.blue {color: blue}
+			.red {color: red}
+			.underline {text-decoration: underline}
+		</style>
+	}
+	19.4.directory.component.ts: {
+		export class DirectoryComponent implements OnInit {
+			classes = {'blue': false, 'red': true, 'underline': true};
+			test = true;
+		}
+	}
+}
