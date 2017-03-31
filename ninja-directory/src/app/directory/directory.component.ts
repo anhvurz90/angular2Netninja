@@ -21,4 +21,10 @@ export class DirectoryComponent implements OnInit {
   ngOnInit() {
   }
 
+  ninjas = [
+    {name: "Yoshi", belt: "black"},
+    {name: "Ryu", belt: "red"},
+    {name: "Crystal", belt: "purple"}
+  ];
+
 }
