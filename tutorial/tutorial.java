@@ -494,3 +494,28 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 		}
 	}
 }
+20.ngFor: {
+	20.1.directory.component.html: {
+		<h2>Ninja Listing</h2>
+		
+		<ul id="ninja-listing">
+			<li *ngFor="let ninja of ninjas">
+				<div class="single-ninja">
+					<span [ngStyle]="{background: ninja.belt}">
+						{{ninja.belt}} belt
+					</span>
+					<h3>{{ninja.name}}</h3>
+				</div>
+			</li>
+		</ul>
+	}
+	20.2.directory.component.ts: {
+		export class DirectoryComponent implements OnInit {
+			ninjas = [
+				{name: "Yoshi", belt: "black"},
+				{name: "Ryu", belt: "red"},
+				{name: "Crystal", belt: "purple"}
+			];
+		}
+	}
+}
