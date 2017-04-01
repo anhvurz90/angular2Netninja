@@ -519,3 +519,8 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 		}
 	}
 }
+21.Pipes: {
+	directory.component.html: {
+		<h3>{{ninja.name | uppercase | slice:1:3}}</h3>
+	}
+}
