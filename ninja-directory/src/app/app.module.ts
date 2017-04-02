@@ -8,12 +8,14 @@ import { HomeComponent } from './home/home.component';
 import { DirectoryComponent } from './directory/directory.component';
 import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
+import { NinjaFilterPipe } from './ninja-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    DirectoryComponent
+    DirectoryComponent,
+    NinjaFilterPipe
   ],
   imports: [
     BrowserModule,
