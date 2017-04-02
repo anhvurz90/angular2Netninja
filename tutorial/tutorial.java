@@ -524,3 +524,50 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 		<h3>{{ninja.name | uppercase | slice:1:3}}</h3>
 	}
 }
+22.Custom Filter Pipe: {
+	22.1.Directory.component.html: {
+		<form id="filter">
+			<label>Filter ninjas by name:</label>
+			<input type="text" [(ngModel)]="term"/>
+		</form>
+		
+		<li *ngFor="let ninja of ninjas | ninjaFilter:term">
+		</li>
+	}
+	22.2.Console: {
+		- cd src/app
+		- ng g pipe ninjaFilter (angular generate pipe with name 'ninjaFilter')
+			---> src/app/ninjaFilter.pipe.ts
+				src/app/ninjaFilter.pipe.spec.ts
+	}
+	22.3.ninjaFilter.pipe.ts: {
+		import {Pipe, PipeTransform } from '@angular/core';
+		
+		@Pipe({
+			name: 'ninjaFilter'
+		})
+		
+		export class NinjaFilterPipe implements PipeTransform {
+			
+			transform(ninjaList: any, text: any): any {
+				//check if search term is undefined
+				if (term === undefined) return ninjaList;
+				//return updated ninjaList 
+				return ninjaList.filter(function(ninja) {
+					return ninja.name.toLowerCase().includes(text.toLowerCase());
+				});
+			}
+		}
+	}
+	22.4.app.module.ts: {
+		import {NinjaFilterPipe} from './ninjaFilter.pipe';
+		
+		@NgModule({
+			declarations: [
+				...
+				NinjaFilterPipe
+			],
+		})
+	}
+		
+}
