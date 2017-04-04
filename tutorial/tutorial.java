@@ -571,3 +571,64 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 	}
 		
 }
+23.Services: {
+	23.1.Don't Repeat Yourself: {
+		Component 1:
+			- Does something
+			- Connects to the database
+		Component 2:
+			- Does something
+			- Connects to the database
+	}
+	23.2.Services: {
+		Component 1
+			- Does something	----------------		Service
+		Component 2					--------->		- Connects to database
+			- Does something	----------------
+	}
+	23.3. {
+		src/app:
+			- ng g s logging (ng generate service 'logging')
+			---> src/app/logging.service.ts: {
+				import { Injectable } from '@angular/core';
+				@Injectable()
+				export class LoggingService {
+					log() {
+						console.log("I am the logging service.");
+					}
+					constructor() { }
+				}
+			}		
+	}
+	23.4.Directory.component.ts: {
+		import { LoggingService } from "../logging.service";
+		
+		@Component({
+			...
+			providers: [ LoggingService ]
+		})
+		
+		export class DirectoryComponent implements OnInit {
+			constructor(private logger: LoggingService) {}
+				
+			logIt() {
+				this.logger.log();
+			}
+		}
+	}
+	23.5.directory.component.html: {
+		...
+		<button (click)="logIt()">Log me</button>
+	}
+	23.6.A better way: {
+		23.6.1.main.ts: {
+			import { LoggingService } from "./app/logging.service";
+			...
+			bootstrap(AppComponent, [APP_ROUTES_PROVIDER, LoggingService]);
+		}
+		23.6.2.directory.component.ts: {
+			remove 'providers: [LoggingService]' from @Component({...})
+		}
+	}
+	
+}
