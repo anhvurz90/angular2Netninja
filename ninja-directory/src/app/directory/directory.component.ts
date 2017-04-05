@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LoggingService } from '../logging.service';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-directory',
@@ -16,7 +17,9 @@ export class DirectoryComponent implements OnInit {
 
   ninjaObj: string;
 
-  constructor(private route: ActivatedRoute, private logger: LoggingService) {
+  constructor(private route: ActivatedRoute,
+              private logger: LoggingService,
+              private dataService: DataService) {
     this.ninjaObj = route.snapshot.params['ninja'];
   }
 
@@ -25,6 +28,9 @@ export class DirectoryComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.dataService.fetchData().subscribe(
+      (data) => this.ninjas = data.json()
+    );
   }
 
   ninjas = [

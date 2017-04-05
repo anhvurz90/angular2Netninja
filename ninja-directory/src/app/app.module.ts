@@ -10,6 +10,8 @@ import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
 import { NinjaFilterPipe } from './ninja-filter.pipe';
 import { LoggingService } from './logging.service';
+//import { HTTP_PROVIDERS } from "@angular/http";
+import { DataService} from './data.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,7 @@ import { LoggingService } from './logging.service';
     HttpModule,
     RouterModule.forRoot(APP_ROUTES)
   ],
-  providers: [LoggingService],
+  providers: [LoggingService, DataService ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
