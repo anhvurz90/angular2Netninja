@@ -621,10 +621,20 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 		<button (click)="logIt()">Log me</button>
 	}
 	23.6.A better way: {
-		23.6.1.main.ts: {
+		23.6.1.app.module.ts: {
 			import { LoggingService } from "./app/logging.service";
 			...
-			bootstrap(AppComponent, [APP_ROUTES_PROVIDER, LoggingService]);
+			@NgModule({
+				declarations: [
+					...
+				],
+				imports: [
+					...
+				],
+				providers: [LoggingService],
+				...
+			})
+
 		}
 		23.6.2.directory.component.ts: {
 			remove 'providers: [LoggingService]' from @Component({...})
