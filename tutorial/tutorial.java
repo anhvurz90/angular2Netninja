@@ -640,5 +640,58 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 			remove 'providers: [LoggingService]' from @Component({...})
 		}
 	}
-	
+}
+24.HTTP Service: {
+	24.1.assets/ninjas.json{
+		[ {"name": "Yoshi", "belt": "black"},
+		  {"name": "Ryu", "belt": "red"},
+		  {"name": "Crystal", "belt": "purple"},
+		  {"name": "Shaun", "belt": "black"} ]
+	}
+	24.2.src/app/directory/directory.component.ts: {
+		import { DataService } from '../data.service';
+		...
+		export class DirectoryComponent implements OnInit {
+			ninjas = [];
+			
+			constructor(private dataService: DataService) { }
+			
+			ngOnInit() {
+				this.dataService.fetchData().subscribe(
+					(data) => this.ninjas = data
+				);
+			}
+		}
+	}
+	24.3.src/app/app.module.ts: {
+		import { HttpModule } from '@angular/http';
+		import { DataService } from 'data.service';
+		...
+		@NgModule({
+			...
+			imports: [
+				...
+				HttpModule
+			]
+			providers: [ DataService ]
+		})
+	}
+	24.4.console {
+		ng g s data
+		---> src/app/data.service.ts {
+			import { Injectable } from '@angular/core';
+			import { Http } from '@angular/http';
+			@Injectable()
+			export class DataService {
+				constructor(private http: Http) { }
+				
+				fetchData() {
+					return this.http.get('/assets/ninjas.json')
+					.map(
+						(res) => res.json()
+					);					
+				}
+			}
+		}
+	}
 }
