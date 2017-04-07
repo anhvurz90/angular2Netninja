@@ -695,3 +695,22 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 		}
 	}
 }
+25.Connecting to Firebase: {
+	25.1.Firebase {
+		- https://firebase.google.com
+			Get started for free
+		- https://console.firebase.google.com
+			Create New Project: nn-angular2-vu
+			Database
+		- https://console.firebase.google.com/project/nn-angular2-vu/database/rules
+		- https://console.firebase.google.com/project/nn-angualr2-vu/database/data
+			Import JSON <- ninjas.json (created in the previous chapter)
+			-> https://nn-angular2-vu.firebaseio.com
+	}
+	25.2.data.service.ts {
+		...
+		fetchData() {
+			return this.http.get("https://nn-angular2-vu.firebaseio.com/.json");
+		}
+	}
+}
