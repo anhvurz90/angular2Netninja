@@ -714,3 +714,38 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 		}
 	}
 }
+26.Firebase API: {
+	26.1.{ 
+		https://console.firebase.google.com/project/nanochat-9e1d4/overview
+			Add another app
+				Add Firebase to your web app
+					<script>...</script> -> (1)
+	}
+	26.2.index.html {
+		(1) -> copy here
+	}
+	26.3.src/app/directory/directory.component.ts: {
+		import...
+		declare var firebase: any;
+		
+		export class DirectoryComponent implements OnInit {
+			
+			...
+			
+			ngOnInit() {
+				...
+				this.fbGetData();
+			}
+			
+			fbGetData() {
+				firebase.database().ref("/").on("child_added", 
+					(snapshot) => { 
+						console.log(snapshot.val()) ;
+						this.ninjas.push(snapshot.val())
+					}
+				)
+			}
+		}
+	}
+	
+}
