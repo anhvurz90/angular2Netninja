@@ -49,4 +49,8 @@ export class DirectoryComponent implements OnInit {
       }
     );
   }
+
+  fbPostData(name, belt) {
+    firebase.database().ref("/").push({name: name, belt: belt});
+  }
 }

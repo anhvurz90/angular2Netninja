@@ -30,3 +30,11 @@
 </ul>
 
 <button (click) = "logIt()">Log me</button>
+
+<form id="add-ninja">
+  <input type="text" [(ngModel)]="name" name='a'/>
+  <input type="text" [(ngModel)]="belt" name='b'/>
+  <button (click)="fbPostData(name, belt)">
+    Add ninja
+  </button>
+</form>
