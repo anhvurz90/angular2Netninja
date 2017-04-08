@@ -747,5 +747,24 @@ http://www.theNetNinja.co.uk/courses/angular-2-tutorials
 			}
 		}
 	}
-	
+}
+27.Posting Data to Firebase: {
+	27.1.src/app/directory/directory.component.css: {
+		#ninja-listing { margin: 0; padding: 0; }
+		#ninja-listing li { list-style-type: none; margin: 10px 0;}
+	}
+	27.2.src/app/directory/directory.component.html: {
+		...
+		<form id="add-ninja">
+			<input type="text" [(ngModel)]="name"/>
+			<input type="text" [(ngModel)]="belt"/>
+			<button (click)="fbPostData(name, belt)">Add Ninja</button>
+		</form>
+	}
+	27.3.src/app/directory/directory.component.ts: {
+		...
+		fbPostData(name, belt) {
+			firebase.database().ref("/").push({name: name, belt: belt});
+		}
+	}
 }
